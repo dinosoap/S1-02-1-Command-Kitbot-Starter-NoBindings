@@ -67,7 +67,7 @@ public class Loader extends SubsystemBase {
 
     /** Runs the loader at the speed used while feeding a game piece into the flywheel. */
     public Command runToFlywheelCommand() {
-        return runLoaderCommand(kLoaderToFlywheelOutput).withName("loaderToFlywheel");
+        return runLoaderCommand(-kLoaderToFlywheelOutput).withName("loaderToFlywheel");
     }
 
     @Override
