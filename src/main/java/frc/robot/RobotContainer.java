@@ -58,7 +58,8 @@ public class RobotContainer {
                 () -> -m_driverController.getLeftY(), () -> -m_driverController.getRightX()));
 
         /* TO DO: Add bindings here */
-        m_driverController.x().toggleOnTrue(m_intake.runIntakeCommand());
+        m_driverController.a().toggleOnTrue(m_intake.runIntakeCommand());
+        m_driverController.b().toggleOnTrue(m_intake.reverseIntakeCommand());
         
     }
 
