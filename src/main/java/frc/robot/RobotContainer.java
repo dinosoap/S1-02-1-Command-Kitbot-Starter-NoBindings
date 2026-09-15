@@ -58,8 +58,18 @@ public class RobotContainer {
                 () -> -m_driverController.getLeftY(), () -> -m_driverController.getRightX()));
 
         /* TO DO: Add bindings here */
+        //Releasing whiletrue command stops the motor because the button being pressed is no longer "true"
         m_driverController.a().toggleOnTrue(m_intake.runIntakeCommand());
         m_driverController.b().toggleOnTrue(m_intake.reverseIntakeCommand());
+        m_driverController.x().toggleOnTrue(Commands.parallel(
+            m_flywheel.runShooterCommand()
+            ,Commands.sequence(
+            Commands.waitSeconds(1.5)
+            ,Commands.parallel(
+            m_loader.runToFlywheelCommand()
+            ,m_intake.runIntakeCommand()))));
+
+        
         
     }
 
